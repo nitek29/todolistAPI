@@ -31,7 +31,7 @@ app.use(session({secret: 'todolistSecureCookie'}))
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/todo',todoRouter);
+app.use('/api/todo',todoRouter);
 
 
 //app.listen(8080);

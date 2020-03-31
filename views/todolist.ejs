@@ -387,7 +387,7 @@
                 window.location.href = "http://localhost:3000/todo";
             }
         };
-        xhttp.open("POST", "http://localhost:3000/todo");
+        xhttp.open("POST", "http://localhost:3000/api/todo");
         xhttp.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
         xhttp.send(data);
     };
@@ -397,7 +397,7 @@
 
         let data = JSON.stringify(
             {
-                id: myid,
+                //id: myid,
                 title: document.getElementById("title_" + myid).value,
                 dateBegin: document.getElementById("dateBegin_" + myid).value,
                 dateEnd: document.getElementById("dateEnd_" + myid).value,
@@ -414,7 +414,7 @@
                 //window.location.href = "http://localhost:3000/todo";
             }
         };
-        xhttp.open("PUT", "http://localhost:3000/todo/" + myid);
+        xhttp.open("PUT", "http://localhost:3000/api/todo/" + myid);
         xhttp.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
         xhttp.send(data);
 
@@ -429,7 +429,7 @@
                 window.location.href = "http://localhost:3000/todo";
             }
         };
-        xhttp.open("DELETE", "http://localhost:3000/todo/" + myid, true);
+        xhttp.open("DELETE", "http://localhost:3000/api/todo/" + myid, true);
         xhttp.send()
     }
 
@@ -466,9 +466,9 @@
         }
         if(params.length>0){
 
-            window.location.href = "http://localhost:3000/todo?" + params;
+            window.location.href = "http://localhost:3000/api/todo?" + params;
         } else {
-            window.location.href = "http://localhost:3000/todo";
+            window.location.href = "http://localhost:3000/api/todo";
         }
     }
 

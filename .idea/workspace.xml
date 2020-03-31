@@ -2,35 +2,34 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6b68d8b4-31de-4f8d-89a4-10e74eaa5650" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/routes/todo.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/todolist.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/todolistv2.ejs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/db/db.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/getJson.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/todolistControllers/todo.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/body-parser/HISTORY.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/body-parser/HISTORY.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/body-parser/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/body-parser/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/body-parser/lib/types/urlencoded.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/body-parser/lib/types/urlencoded.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/body-parser/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/body-parser/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bytes/History.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bytes/History.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bytes/Readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bytes/Readme.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bytes/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bytes/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bytes/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bytes/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/iconv-lite/.travis.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/iconv-lite/Changelog.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/iconv-lite/Changelog.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/iconv-lite/encodings/sbcs-codec.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/iconv-lite/encodings/sbcs-codec.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/iconv-lite/encodings/sbcs-data.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/iconv-lite/encodings/sbcs-data.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/iconv-lite/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/iconv-lite/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/raw-body/HISTORY.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/raw-body/HISTORY.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/raw-body/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/raw-body/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/todo.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/todo.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/todolist.js" beforeDir="false" afterPath="$PROJECT_DIR$/todolist.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/todolistv2.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/todolist.ejs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="quentin galliou &lt;quentingalliou29@gmail.com&gt;" />
+      </list>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1ZtXC4psiHJay7yYw2JRuzy27Eu" />
@@ -45,7 +44,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="javascript.nodejs.core.library.configured.version" value="12.16.1" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/views" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/routes" />
     <property name="nodejs_interpreter_path" value="node" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -53,8 +52,8 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\Documents\ENSSAT\2a\algo_reparti\todolistAPI\views" />
       <recent name="D:\Documents\ENSSAT\2a\algo_reparti\todolistAPI\routes" />
+      <recent name="D:\Documents\ENSSAT\2a\algo_reparti\todolistAPI\views" />
       <recent name="D:\Documents\ENSSAT\2a\algo_reparti\todolistAPI" />
     </key>
   </component>
@@ -69,18 +68,34 @@
       <option name="presentableId" value="Default" />
       <updated>1585659234160</updated>
       <workItem from="1585659242822" duration="725000" />
-      <workItem from="1585661236545" duration="649000" />
+      <workItem from="1585661236545" duration="13584000" />
     </task>
+    <task id="LOCAL-00001" summary="first commit">
+      <created>1585662026059</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1585662026059</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="first commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="first commit" />
   </component>
   <component name="WindowStateProjectService">
     <state x="1170" y="290" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1585661449592">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="1170" y="290" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1585661449592" />
+    <state x="830" y="121" key="CommitChangelistDialog2" timestamp="1585662020919">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="830" y="121" key="CommitChangelistDialog2/0.0.1920.1080@0.0.1920.1080" timestamp="1585662020919" />
     <state x="739" y="282" key="FileChooserDialogImpl" timestamp="1585659319507">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
@@ -89,21 +104,25 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="830" y="433" width="457" height="205" key="Github.ShareDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1585661373429" />
-    <state width="914" height="295" key="GridCell.Tab.0.bottom" timestamp="1585661696382">
+    <state width="914" height="295" key="GridCell.Tab.0.bottom" timestamp="1585678611754">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="914" height="295" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1585661696382" />
-    <state width="914" height="295" key="GridCell.Tab.0.center" timestamp="1585661696382">
+    <state width="914" height="295" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1585678611754" />
+    <state width="914" height="295" key="GridCell.Tab.0.center" timestamp="1585678611754">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="914" height="295" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1585661696382" />
-    <state width="914" height="295" key="GridCell.Tab.0.left" timestamp="1585661696382">
+    <state width="914" height="295" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1585678611754" />
+    <state width="914" height="295" key="GridCell.Tab.0.left" timestamp="1585678611753">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="914" height="295" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1585661696382" />
-    <state width="914" height="295" key="GridCell.Tab.0.right" timestamp="1585661696382">
+    <state width="914" height="295" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1585678611753" />
+    <state width="914" height="295" key="GridCell.Tab.0.right" timestamp="1585678611754">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="914" height="295" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1585661696382" />
+    <state width="914" height="295" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1585678611754" />
+    <state x="44" y="413" key="Vcs.Push.Dialog.v2" timestamp="1585662255312">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="44" y="413" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1585662255312" />
   </component>
 </project>

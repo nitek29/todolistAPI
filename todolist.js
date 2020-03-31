@@ -1,27 +1,5 @@
 let uuid = require("uuid");
-let mysql = require('mysql');
-let con = mysql.createConnection({
-    host: "localhost",
-    user: "root",
-    password: "MySQLRoot",
-    database: "todolist"
-});
-
-con.connect(function(err) {
-    if (err) throw err;
-    console.log("Connected!");
-    con.query("CREATE DATABASE IF NOT EXISTS todolist", function (err, result) {
-        if (err) throw err;
-        console.log("Database created");
-    });
-   // let sql = "CREATE TABLE IF not exists todolist (id varchar(255) PRIMARY KEY , title VARCHAR(255), dateBegin DATE , dateEnd DATE, statut VARCHAR(255), tags VARCHAR(255))";
-    let sql = "CREATE TABLE IF not exists todolist (id varchar(255) PRIMARY KEY , title VARCHAR(255), dateBegin VARCHAR(10), dateEnd VARCHAR(10), statut VARCHAR(255), tags VARCHAR(255))";
-
-    con.query(sql, function (err, result) {
-        if (err) throw err;
-        console.log("Table created");
-    });
-});
+let con = require("./db/db.js");
 
 module.exports={
 
@@ -66,7 +44,7 @@ module.exports={
 
     },
 
-    get: function (id,list) {
+    get: function (id) {
         console.log("get by id")
         return new Promise((resolve,reject)=>{
             let sql =" SELECT * FROM todolist where id = ?";
@@ -89,22 +67,22 @@ module.exports={
             })*/
         })
     },
-    update: function(id,list,myjson) {
+    update: function(id,myjson) {
         console.log("update");
-        console.log(JSON.parse(myjson))
         return new Promise((resolve, reject) => {
                 let sql = "UPDATE todolist SET ? WHERE id =?";
-                let data = [JSON.parse(myjson), id]
-                con.query(sql, data, function (err, result) {
+                let data = [JSON.parse(myjson), id];
+                let query=con.query(sql, data, function (err, result) {
                     if (err) {
                         throw err;
                         reject("identifiant inconnu");
                     }else{
                         console.log("update ok");
                         console.log(result);
-                        resolve(result);
+                        resolve(module.exports.get(id));
                     }
                 })
+            console.log(query.sql)
 
             /*if (list.length>0) {
                 list.forEach(e => {
