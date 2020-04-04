@@ -1,10 +1,10 @@
-let todolist= require("../todolist.js");
+let todolist = require("../todolist.js");
+
 class TodosController {
     /* On affiche la todolist et le formulaire */
     getAllTodos(req, res) {
         console.log("function get");
         let params = {};
-        console.log(req.query.statut)
         if (req.query.statut != undefined) {
             let statut = req.query.statut.split(',');
             params.statut = statut;
@@ -55,56 +55,64 @@ class TodosController {
 
     /* On ajoute un élément à la todolist */
     addTodo(req, res) {
+        console.log("Controller::addTodo ")
         console.log(req.body);
         if (!req.body.title) {
+            console.log("erreur title");
             return res.status(400).send({
                 success: 'false',
                 message: 'title is required'
             });
-        } else if (!req.body.dateBegin) {
+        } else if (!req.body.dateBegin || req.body.dateBegin.match("/^\d{2}\/\d{2}-\/\d{4}$/")) {
+            console.log("erreur dateB");
             return res.status(400).send({
                 success: 'false',
                 message: 'date begin is required'
             });
-        } else if (!req.body.dateEnd) {
+        } else if (!req.body.dateEnd || req.body.dateEnd.match("/^\d{2}\/\d{2}-\/\d{4}$/")) {
+            console.log("erreur dateE");
             return res.status(400).send({
                 success: 'false',
                 message: 'date end is required'
             });
         } else if (!req.body.statut) {
+            console.log("erreur statut");
             return res.status(400).send({
                 success: 'false',
                 message: 'statut is required'
             });
         } else if (!req.body.tags) {
+            console.log("erreur tags");
             return res.status(400).send({
                 success: 'false',
                 message: 'tags is required'
             });
         }
         //myTodolist.push(todolist.add(JSON.stringify(req.body)));
-        let todo = todolist.add(JSON.stringify(req.body))
+        let todo = todolist.add(JSON.stringify(req.body));
         return res.status(201).send({
             success: 'true',
             message: 'todo added successfully',
             todo
         })
+
     }
 
     /* On affiche la todolist  */
     updateTodo(req, res) {
         if (req.params.id != '') {
+
             if (!req.body.title) {
                 return res.status(400).send({
                     success: 'false',
                     message: 'title is required'
                 });
-            } else if (!req.body.dateBegin) {
+            } else if (!req.body.dateBegin && req.body.dateBegin.matches("/^\d{2}\/\d{2}-\/\d{4}$/")) {
                 return res.status(400).send({
                     success: 'false',
                     message: 'date begin is required'
                 });
-            } else if (!req.body.dateEnd) {
+            } else if (!req.body.dateEnd && req.body.dateEnd.matches("/^\d{2}\/\d{2}-\/\d{4}$/")) {
                 return res.status(400).send({
                     success: 'false',
                     message: 'date end is required'
@@ -133,7 +141,9 @@ class TodosController {
                     message: 'todo not found',
                 });
             });
+
         }
+
     }
 
     /* Supprime un élément de la todolist */
@@ -152,7 +162,19 @@ class TodosController {
             })
         }
     }
+
+    /*validate(){
+        const {body} = require('express-validator/check');
+        return [
+            body('title', "Title doesn't exist").exists(),
+            body('dateBegin','Invalid date. Format is 01/01/2020').exists().matches("/^\d{2}\/\d{2}-\/\d{4}$/"),
+            body('dateEnd','Invalid date. Format is 01/01/2020').exists().matches("/^\d{2}\/\d{2}\/\d{4}$/"),
+            body('statut', "Title doesn't exist").exists(),
+            body('tags', "Title doesn't exist").exists()
+        ]
+    }*/
 }
+
 const todosController = new TodosController();
-module.exports= todosController;
+module.exports = todosController;
 

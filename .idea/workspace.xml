@@ -2,15 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6b68d8b4-31de-4f8d-89a4-10e74eaa5650" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/db/db.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/getJson.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/todolistControllers/todo.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/javascripts/CRUD.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/javascripts/dom.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/getJson.js" beforeDir="false" afterPath="$PROJECT_DIR$/helpers/getJson.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/stylesheets/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/stylesheets/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/todo.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/todo.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/todolist.js" beforeDir="false" afterPath="$PROJECT_DIR$/todolist.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/todolistv2.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/todolist.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/todolistControllers/todo.js" beforeDir="false" afterPath="$PROJECT_DIR$/todolistControllers/todo.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/todolist.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/todolist.ejs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,6 +24,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="JavaScript File" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -49,12 +53,17 @@
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="restartRequiresConfirmation" value="false" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\Documents\ENSSAT\2a\algo_reparti\todolistAPI\routes" />
       <recent name="D:\Documents\ENSSAT\2a\algo_reparti\todolistAPI\views" />
       <recent name="D:\Documents\ENSSAT\2a\algo_reparti\todolistAPI" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Documents\ENSSAT\2a\algo_reparti\todolistAPI\public\javascripts" />
+      <recent name="D:\Documents\ENSSAT\2a\algo_reparti\todolistAPI\helpers" />
     </key>
   </component>
   <component name="SvnConfiguration">
@@ -68,7 +77,14 @@
       <option name="presentableId" value="Default" />
       <updated>1585659234160</updated>
       <workItem from="1585659242822" duration="725000" />
-      <workItem from="1585661236545" duration="13584000" />
+      <workItem from="1585661236545" duration="14839000" />
+      <workItem from="1585724408339" duration="59000" />
+      <workItem from="1585821694471" duration="709000" />
+      <workItem from="1585824996424" duration="2901000" />
+      <workItem from="1585894203555" duration="4169000" />
+      <workItem from="1585905764105" duration="14000" />
+      <workItem from="1585989303246" duration="811000" />
+      <workItem from="1585990169222" duration="12699000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1585662026059</created>
@@ -77,7 +93,14 @@
       <option name="project" value="LOCAL" />
       <updated>1585662026059</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="finish">
+      <created>1585683653465</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1585683653465</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -85,17 +108,18 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="first commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="first commit" />
+    <MESSAGE value="finish" />
+    <option name="LAST_COMMIT_MESSAGE" value="finish" />
   </component>
   <component name="WindowStateProjectService">
     <state x="1170" y="290" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1585661449592">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="1170" y="290" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1585661449592" />
-    <state x="830" y="121" key="CommitChangelistDialog2" timestamp="1585662020919">
+    <state x="830" y="121" key="CommitChangelistDialog2" timestamp="1585683650931">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="830" y="121" key="CommitChangelistDialog2/0.0.1920.1080@0.0.1920.1080" timestamp="1585662020919" />
+    <state x="830" y="121" key="CommitChangelistDialog2/0.0.1920.1080@0.0.1920.1080" timestamp="1585683650931" />
     <state x="739" y="282" key="FileChooserDialogImpl" timestamp="1585659319507">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
@@ -104,25 +128,41 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="830" y="433" width="457" height="205" key="Github.ShareDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1585661373429" />
-    <state width="914" height="295" key="GridCell.Tab.0.bottom" timestamp="1585678611754">
+    <state width="914" height="288" key="GridCell.Tab.0.bottom" timestamp="1586004281646">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="914" height="295" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1585678611754" />
-    <state width="914" height="295" key="GridCell.Tab.0.center" timestamp="1585678611754">
+    <state width="914" height="288" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1586004281646" />
+    <state width="914" height="288" key="GridCell.Tab.0.center" timestamp="1586004281646">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="914" height="295" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1585678611754" />
-    <state width="914" height="295" key="GridCell.Tab.0.left" timestamp="1585678611753">
+    <state width="914" height="288" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1586004281646" />
+    <state width="914" height="288" key="GridCell.Tab.0.left" timestamp="1586004281646">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="914" height="295" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1585678611753" />
-    <state width="914" height="295" key="GridCell.Tab.0.right" timestamp="1585678611754">
+    <state width="914" height="288" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1586004281646" />
+    <state width="914" height="288" key="GridCell.Tab.0.right" timestamp="1586004281646">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="914" height="295" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1585678611754" />
-    <state x="44" y="413" key="Vcs.Push.Dialog.v2" timestamp="1585662255312">
+    <state width="914" height="288" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1586004281646" />
+    <state x="60" y="278" key="IDE.errors.dialog" timestamp="1585989362893">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="44" y="413" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1585662255312" />
+    <state x="60" y="278" key="IDE.errors.dialog/0.0.1920.1080@0.0.1920.1080" timestamp="1585989362893" />
+    <state width="498" height="446" key="SwitcherDM" timestamp="1585897892914">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="498" height="446" key="SwitcherDM/0.0.1920.1080@0.0.1920.1080" timestamp="1585897892914" />
+    <state x="44" y="413" key="Vcs.Push.Dialog.v2" timestamp="1585683658450">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="44" y="413" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1585683658450" />
+    <state x="183" y="364" key="com.intellij.ide.util.TipDialog" timestamp="1585990173335">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="183" y="364" key="com.intellij.ide.util.TipDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1585990173335" />
+    <state x="136" y="254" key="run.anything.popup" timestamp="1586001328956">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="136" y="254" key="run.anything.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1586001328956" />
   </component>
 </project>

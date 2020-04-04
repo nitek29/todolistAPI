@@ -19,7 +19,6 @@ module.exports={
         console.log("get all");
       return new Promise(((resolve, reject) => {
           let sql;
-          console.log(params)
           if (Object.keys(params).length>0){
               sql= "SELECT * FROM todolist WHERE";
               Object.entries(params).forEach(([k,v]) =>{
@@ -39,7 +38,7 @@ module.exports={
                   resolve(JSON.parse(JSON.stringify(result)));
               }
           })
-          console.log(query.sql);
+          //console.log(query.sql);
       }))
 
     },
@@ -58,13 +57,6 @@ module.exports={
                     resolve(result);
                 }
             })
-            /*list.forEach(e => {
-                if (e.id == id) {
-                    resolve(e);
-                }else{
-                    reject("identifiant inconnu");
-                }
-            })*/
         })
     },
     update: function(id,myjson) {
@@ -82,21 +74,7 @@ module.exports={
                         resolve(module.exports.get(id));
                     }
                 })
-            console.log(query.sql)
-
-            /*if (list.length>0) {
-                list.forEach(e => {
-                    if (e.id == id) {
-                        list[list.indexOf(e)] = JSON.parse(myjson);
-                        console.log(e);
-                        resolve(e);
-                    } else {
-                        reject("identifiant inconnu");
-                    }
-                })
-            }else{
-                reject("Aucune tâche n'existe")
-            }*/
+            //console.log(query.sql)
 
         })
     },
@@ -114,15 +92,6 @@ module.exports={
                     resolve(JSON.stringify(result));
                 }
             })
-           /* list.forEach(e => {
-                if (e.id == id) {
-                    console.log(e)
-                    list.splice(list.indexOf(e),1)
-                    resolve(list);
-                } else {
-                    reject("identifiant inconnu");
-                }
-            })*/
         })
 
 
