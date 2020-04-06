@@ -1,16 +1,7 @@
 let todolist = require("../todolist.js");
-
+const moment = require("moment")
 class TodosController {
     /* On affiche la todolist et le formulaire */
-    /**
-     * This function comment is parsed by doctrine
-     * @route GET /api
-     * @group todolist - Operations about todo
-     * @param {string} title.query.required - title - eg: homeworks
-     * @param {string} dateBegin.query.required - user's password.
-     * @returns {object} 200 - An array of user info
-     * @returns {Error}  default - Unexpected error
-     */
     getAllTodos(req, res) {
         console.log("function get");
         let params = {};
@@ -21,6 +12,14 @@ class TodosController {
         if (req.query.tags != undefined) {
             let tags = req.query.tags.split(',');
             params.tags = tags;
+        }
+        if (req.query.dateBegin != undefined) {
+            let dateB = req.query.dateBegin;
+            params.dateBegin = dateB;
+        }
+        if (req.query.dateEnd != undefined) {
+            let dateE = req.query.dateEnd;
+            params.dateEnd = dateE;
         }
         todolist.getAll(params).then(todo => {
             //res.render('todolist.ejs', {todolist: todo});
@@ -72,17 +71,17 @@ class TodosController {
                 success: 'false',
                 message: 'title is required'
             });
-        } else if (!req.body.dateBegin || req.body.dateBegin.match("/^\d{2}\/\d{2}-\/\d{4}$/")) {
+        } else if (!req.body.dateBegin || !moment(req.body.dateBegin, "YYYY-MM-DD", true).isValid()) {
             console.log("erreur dateB");
             return res.status(400).send({
                 success: 'false',
-                message: 'date begin is required'
+                message: 'date begin is required YYYY-MM-DD'
             });
-        } else if (!req.body.dateEnd || req.body.dateEnd.match("/^\d{2}\/\d{2}-\/\d{4}$/")) {
+        } else if (!req.body.dateEnd || !moment(req.body.dateEnd, "YYYY-MM-DD", true).isValid()) {
             console.log("erreur dateE");
             return res.status(400).send({
                 success: 'false',
-                message: 'date end is required'
+                message: 'date end is required YYYY-MM-DD'
             });
         } else if (!req.body.statut) {
             console.log("erreur statut");
@@ -116,15 +115,15 @@ class TodosController {
                     success: 'false',
                     message: 'title is required'
                 });
-            } else if (!req.body.dateBegin && req.body.dateBegin.matches("/^\d{2}\/\d{2}-\/\d{4}$/")) {
+            } else if (!req.body.dateBegin && moment(req.body.dateBegin, "YYYY-MM-DD", true).isValid()) {
                 return res.status(400).send({
                     success: 'false',
-                    message: 'date begin is required'
+                    message: 'date begin is required  YYYY-MM-DD'
                 });
-            } else if (!req.body.dateEnd && req.body.dateEnd.matches("/^\d{2}\/\d{2}-\/\d{4}$/")) {
+            } else if (!req.body.dateEnd && moment(req.body.dateEnd, "YYYY-MM-DD", true).isValid()) {
                 return res.status(400).send({
                     success: 'false',
-                    message: 'date end is required'
+                    message: 'date end is required  YYYY-MM-DD'
                 });
             } else if (!req.body.statut) {
                 return res.status(400).send({

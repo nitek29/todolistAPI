@@ -3,6 +3,7 @@
 <head>
     <script type="text/javascript" src="javascripts/CRUD.js"></script>
     <script type="text/javascript" src="javascripts/dom.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js" type="text/javascript"></script>
     <link rel="stylesheet" type="text/css" href="stylesheets/style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
@@ -12,10 +13,10 @@
     <h2 style="margin:5px">My To Do List</h2>
     <div id="add">
         <input type="text" name="title" id="ADDtitle" placeholder="Title" autofocus required/>
-        <input type="text" name="dateBegin" id="ADDdateBegin" class="dateInput" placeholder="Date begin 01/01/2020"
-               required pattern="[0-9]{2}/[0-9]{2}/[0-9]{4}"/>
+        <input type="text" name="dateBegin" id="ADDdateBegin" class="dateInput" placeholder="Date begin YYYY-MM-DD"
+               required pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}"/>
         <input type="text" name="dateEnd" id="ADDdateEnd" class="dateInput" placeholder="Date end"
-               pattern="[0-9]{2}/[0-9]{2}/[0-9]{4}" required/>
+               pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}" required/>
         <select id="ADDstatut" placeholder="Statut" required>
             <option value="Non précisée">Non précisée</option>
             <option value="Tâche requise">Tâche requise</option>
@@ -35,7 +36,13 @@
         <div class="statut"> Achevée : <input type="checkbox" id="achevee" value="Achevée"></div>
         <div class="statut">Annulée : <input type="checkbox" id="annulee" value="Annulée"></div>
     </div>
-    <input type="text" name="tags" id="searchTags" placeholder="Tags separated by ','" style="background-color: aliceblue;"/>
+    <input type="text" name="tags" id="searchTags" placeholder="Tags separated by ','"
+           style="background-color: aliceblue;"/>
+    <input type="text" name="dateBegin" id="searchDateBegin" placeholder="Date begin with '<','=' or '>'"
+           style="background-color: aliceblue;" pattern="[=<>][ ][0-9]{4}-[0-9]{2}-[0-9]{2}"/>
+    <input type="text" name="dateEnd" id="searchDateEnd" placeholder="Date end with '<','=' or '>'"
+           style="background-color: aliceblue;" pattern="[=<>][ ][0-9]{4}-[0-9]{2}-[0-9]{2}"/>
+
     <button type="button" onclick="statut()">Search</button>
 </div>
 
@@ -54,12 +61,12 @@
                     <label for="dateEnd">Date de début de la tâche</label>
                     <input class="form" type="text" name="dateBegin" class="dateInput" id="dateBegin_<%= todo.id %>"
                            value="<%= todo.dateBegin %>"
-                           disabled required pattern="[0-9]{2}/[0-9]{2}/[0-9]{4}"/>
+                           disabled required pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}"/>
                 </div>
                 <div class="input">
                     <label for="dateEnd">Date d'échéance de la tâche</label>
                     <input class="form" type="text" name="dateEnd" class="dateInput" id="dateEnd_<%= todo.id %>"
-                           value="<%= todo.dateEnd %>" disabled required pattern="[0-9]{2}/[0-9]{2}/[0-9]{4}"/>
+                           value="<%= todo.dateEnd %>" disabled required pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}"/>
                 </div>
                 <div class="input">
                     <label for="statut">Degré d'avancement</label>
@@ -78,61 +85,65 @@
 </body>
 <script type="text/javascript">
     function add() {
-        if (document.getElementById("ADDdateBegin").checkValidity() && document.getElementById("ADDdateEnd").checkValidity() && document.getElementById("ADDtitle").checkValidity() && document.getElementById("ADDstatut").checkValidity() && document.getElementById("ADDtags").checkValidity()) {
+        if (verifyDate(document.getElementById("ADDdateBegin").value) && verifyDate(document.getElementById("ADDdateEnd").value)) {
+            if (document.getElementById("ADDdateBegin").checkValidity() && document.getElementById("ADDdateEnd").checkValidity() && document.getElementById("ADDtitle").checkValidity() && document.getElementById("ADDstatut").checkValidity() && document.getElementById("ADDtags").checkValidity()) {
 
-            let data = JSON.stringify(
-                {
-                    title: document.getElementById("ADDtitle").value,
-                    dateBegin: document.getElementById("ADDdateBegin").value,
-                    dateEnd: document.getElementById("ADDdateEnd").value,
-                    statut: document.getElementById("ADDstatut").value,
-                    tags: document.getElementById("ADDtags").value
+                let data = JSON.stringify(
+                    {
+                        title: document.getElementById("ADDtitle").value,
+                        dateBegin: document.getElementById("ADDdateBegin").value,
+                        dateEnd: document.getElementById("ADDdateEnd").value,
+                        statut: document.getElementById("ADDstatut").value,
+                        tags: document.getElementById("ADDtags").value
 
-                }
-            )
-            let xhttp = new XMLHttpRequest();
-            xhttp.onreadystatechange = function () {
-                if (this.readyState == 4 && this.status == 201) {
-                    console.log("post ok");
-                    window.location.href = "http://localhost:3000/";
-                }
-            };
-            xhttp.open("POST", "http://localhost:3000/api/todo");
-            xhttp.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
-            xhttp.send(data);
+                    }
+                )
+                let xhttp = new XMLHttpRequest();
+                xhttp.onreadystatechange = function () {
+                    if (this.readyState == 4 && this.status == 201) {
+                        console.log("post ok");
+                        window.location.href = "http://localhost:3000/";
+                    }
+                };
+                xhttp.open("POST", "http://localhost:3000/api/todo");
+                xhttp.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
+                xhttp.send(data);
+            }
+            ;
         }
-        ;
     }
 
     function update(myid) {
         console.log("update");
-        if (document.getElementById("title_" + myid).checkValidity() && document.getElementById("dateBegin_" + myid).checkValidity() && document.getElementById("dateEnd_" + myid).checkValidity() && document.getElementById("statut_" + myid).checkValidity() && document.getElementById("tags_" + myid).checkValidity()) {
+        if (verifyDate(document.getElementById("ADDdateBegin").value) && verifyDate(document.getElementById("ADDdateEnd").value)) {
+            if (document.getElementById("title_" + myid).checkValidity() && document.getElementById("dateBegin_" + myid).checkValidity() && document.getElementById("dateEnd_" + myid).checkValidity() && document.getElementById("statut_" + myid).checkValidity() && document.getElementById("tags_" + myid).checkValidity()) {
 
-            let data = JSON.stringify(
-                {
-                    //id: myid,
-                    title: document.getElementById("title_" + myid).value,
-                    dateBegin: document.getElementById("dateBegin_" + myid).value,
-                    dateEnd: document.getElementById("dateEnd_" + myid).value,
-                    statut: document.getElementById("statut_" + myid).value,
-                    tags: document.getElementById("tags_" + myid).value
+                let data = JSON.stringify(
+                    {
+                        //id: myid,
+                        title: document.getElementById("title_" + myid).value,
+                        dateBegin: document.getElementById("dateBegin_" + myid).value,
+                        dateEnd: document.getElementById("dateEnd_" + myid).value,
+                        statut: document.getElementById("statut_" + myid).value,
+                        tags: document.getElementById("tags_" + myid).value
 
-                }
-            )
-            console.log(data)
-            let xhttp = new XMLHttpRequest();
-            xhttp.onreadystatechange = function () {
-                if (this.readyState == 4 && this.status == 201) {
-                    console.log("put ok");
-                    window.location.href = "http://localhost:3000/";
-                }
-            };
-            xhttp.open("PUT", "http://localhost:3000/api/todo/" + myid);
-            xhttp.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
-            xhttp.send(data);
+                    }
+                )
+                console.log(data)
+                let xhttp = new XMLHttpRequest();
+                xhttp.onreadystatechange = function () {
+                    if (this.readyState == 4 && this.status == 201) {
+                        console.log("put ok");
+                        window.location.href = "http://localhost:3000/";
+                    }
+                };
+                xhttp.open("PUT", "http://localhost:3000/api/todo/" + myid);
+                xhttp.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
+                xhttp.send(data);
 
+            }
+            ;
         }
-        ;
     }
 
 
@@ -172,6 +183,18 @@
 
             params += "tags=" + document.getElementById('searchTags').value;
         }
+        if (document.getElementById('searchDateBegin').value.length > 0) {
+            if (params.length > 0) {
+                params += "&";
+            }
+            params += "dateBegin=" + document.getElementById('searchDateBegin').value;
+        }
+        if (document.getElementById('searchDateEnd').value.length > 0) {
+            if (params.length > 0) {
+                params += "&";
+            }
+            params += "dateBegin=" + document.getElementById('searchDateEnd').value;
+        }
 
         if (statut.length > 0) {
             if (params.length > 0) {
@@ -184,6 +207,17 @@
             window.location.href = "http://localhost:3000/?" + params;
         } else {
             window.location.href = "http://localhost:3000/";
+        }
+    }
+
+    function verifyDate(date) {
+        if (!moment(date, "YYYY-MM-DD", true).isValid()) {
+            console.log("date nok")
+            alert(date + " is not a valid date")
+            return false
+        } else {
+            console.log("date ok")
+            return true
         }
     }
 

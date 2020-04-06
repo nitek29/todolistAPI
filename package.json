@@ -17,7 +17,8 @@
     "mysql": "^2.18.1",
     "uuid": "^7.0.2",
     "express-swagger-generator": "^1.1.17",
-    "express-swaggerize-ui": "^1.1.0"
+    "express-swaggerize-ui": "^1.1.0",
+    "moment": "^2.24.0"
   },
   "author": "Quentin Galliou <qgalliou@enssat.fr>",
   "description": "Gestionnaire de todolist"
