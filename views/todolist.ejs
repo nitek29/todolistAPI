@@ -85,7 +85,7 @@
 </body>
 <script type="text/javascript">
     function add() {
-        if (verifyDate(document.getElementById("ADDdateBegin").value) && verifyDate(document.getElementById("ADDdateEnd").value)) {
+        if (verifyDate(document.getElementById("ADDdateBegin").value, document.getElementById("ADDdateEnd").value)) {
             if (document.getElementById("ADDdateBegin").checkValidity() && document.getElementById("ADDdateEnd").checkValidity() && document.getElementById("ADDtitle").checkValidity() && document.getElementById("ADDstatut").checkValidity() && document.getElementById("ADDtags").checkValidity()) {
 
                 let data = JSON.stringify(
@@ -115,7 +115,7 @@
 
     function update(myid) {
         console.log("update");
-        if (verifyDate(document.getElementById("ADDdateBegin").value) && verifyDate(document.getElementById("ADDdateEnd").value)) {
+        if (verifyDate(document.getElementById("ADDdateBegin").value, document.getElementById("ADDdateEnd").value)) {
             if (document.getElementById("title_" + myid).checkValidity() && document.getElementById("dateBegin_" + myid).checkValidity() && document.getElementById("dateEnd_" + myid).checkValidity() && document.getElementById("statut_" + myid).checkValidity() && document.getElementById("tags_" + myid).checkValidity()) {
 
                 let data = JSON.stringify(
@@ -210,10 +210,19 @@
         }
     }
 
-    function verifyDate(date) {
-        if (!moment(date, "YYYY-MM-DD", true).isValid()) {
+    function verifyDate(date1, date2) {
+        console.log(moment(date1, "YYYY-MM-DD", true).isAfter(moment(date2, "YYYY-MM-DD", true)))
+        if (!moment(date1, "YYYY-MM-DD", true).isValid()) {
             console.log("date nok")
-            alert(date + " is not a valid date")
+            alert(date1 + " is not a valid date")
+            return false
+        } else if (!moment(date2, "YYYY-MM-DD", true).isValid()) {
+            console.log("date nok")
+            alert(date2 + " is not a valid date")
+            return false
+        } else if (moment(date1, "YYYY-MM-DD", true).isAfter(moment(date2, "YYYY-MM-DD", true))) {
+            console.log("date nok")
+            alert(date1 + " is after " + date2)
             return false
         } else {
             console.log("date ok")

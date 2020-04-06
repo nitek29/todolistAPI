@@ -2,15 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6b68d8b4-31de-4f8d-89a4-10e74eaa5650" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/db.js" beforeDir="false" afterPath="$PROJECT_DIR$/db/db.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/todolist.js" beforeDir="false" afterPath="$PROJECT_DIR$/todolist.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/todolistControllers/todo.js" beforeDir="false" afterPath="$PROJECT_DIR$/todolistControllers/todo.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/todolist.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/todolist.ejs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -149,7 +141,7 @@
       <workItem from="1586165595077" duration="1505000" />
       <workItem from="1586167338432" duration="311000" />
       <workItem from="1586168388374" duration="3365000" />
-      <workItem from="1586182013652" duration="9325000" />
+      <workItem from="1586182013652" duration="10632000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1585662026059</created>
@@ -179,7 +171,14 @@
       <option name="project" value="LOCAL" />
       <updated>1586184538299</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="last last commit">
+      <created>1586192691832</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1586192691832</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -193,7 +192,8 @@
     <MESSAGE value="finish" />
     <MESSAGE value="add views and data validation" />
     <MESSAGE value="last commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="last commit" />
+    <MESSAGE value="last last commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="last last commit" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="WindowStateProjectService">
@@ -205,10 +205,10 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="1170" y="290" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1585661449592" />
-    <state x="830" y="121" key="CommitChangelistDialog2" timestamp="1586184536046">
+    <state x="830" y="121" key="CommitChangelistDialog2" timestamp="1586192689767">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="830" y="121" key="CommitChangelistDialog2/0.0.1920.1080@0.0.1920.1080" timestamp="1586184536046" />
+    <state x="830" y="121" key="CommitChangelistDialog2/0.0.1920.1080@0.0.1920.1080" timestamp="1586192689767" />
     <state x="739" y="282" key="FileChooserDialogImpl" timestamp="1585659319507">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
@@ -217,22 +217,22 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="830" y="433" width="457" height="205" key="Github.ShareDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1585661373429" />
-    <state width="914" height="288" key="GridCell.Tab.0.bottom" timestamp="1586192392122">
+    <state width="619" height="295" key="GridCell.Tab.0.bottom" timestamp="1586193235104">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="914" height="288" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1586192392122" />
-    <state width="914" height="288" key="GridCell.Tab.0.center" timestamp="1586192392122">
+    <state width="619" height="295" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1586193235104" />
+    <state width="619" height="295" key="GridCell.Tab.0.center" timestamp="1586193235104">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="914" height="288" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1586192392122" />
-    <state width="914" height="288" key="GridCell.Tab.0.left" timestamp="1586192392122">
+    <state width="619" height="295" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1586193235104" />
+    <state width="619" height="295" key="GridCell.Tab.0.left" timestamp="1586193235104">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="914" height="288" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1586192392122" />
-    <state width="914" height="288" key="GridCell.Tab.0.right" timestamp="1586192392122">
+    <state width="619" height="295" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1586193235104" />
+    <state width="619" height="295" key="GridCell.Tab.0.right" timestamp="1586193235104">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="914" height="288" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1586192392122" />
+    <state width="619" height="295" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1586193235104" />
     <state x="60" y="278" key="IDE.errors.dialog" timestamp="1585989362893">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
@@ -241,10 +241,10 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state width="498" height="446" key="SwitcherDM/0.0.1920.1080@0.0.1920.1080" timestamp="1585897892914" />
-    <state x="44" y="413" key="Vcs.Push.Dialog.v2" timestamp="1586184541683">
+    <state x="44" y="413" key="Vcs.Push.Dialog.v2" timestamp="1586192694113">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="44" y="413" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1586184541683" />
+    <state x="44" y="413" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1586192694113" />
     <state x="317" y="385" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1" timestamp="1586191476175">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
