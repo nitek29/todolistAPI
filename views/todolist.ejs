@@ -76,4 +76,192 @@
     <% }); %>
 </ul>
 </body>
+<script type="text/javascript">
+    function add() {
+        if (document.getElementById("ADDdateBegin").checkValidity() && document.getElementById("ADDdateEnd").checkValidity() && document.getElementById("ADDtitle").checkValidity() && document.getElementById("ADDstatut").checkValidity() && document.getElementById("ADDtags").checkValidity()) {
+
+            let data = JSON.stringify(
+                {
+                    title: document.getElementById("ADDtitle").value,
+                    dateBegin: document.getElementById("ADDdateBegin").value,
+                    dateEnd: document.getElementById("ADDdateEnd").value,
+                    statut: document.getElementById("ADDstatut").value,
+                    tags: document.getElementById("ADDtags").value
+
+                }
+            )
+            let xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 201) {
+                    console.log("post ok");
+                    window.location.href = "http://localhost:3000/";
+                }
+            };
+            xhttp.open("POST", "http://localhost:3000/api/todo");
+            xhttp.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
+            xhttp.send(data);
+        }
+        ;
+    }
+
+    function update(myid) {
+        console.log("update");
+        if (document.getElementById("title_" + myid).checkValidity() && document.getElementById("dateBegin_" + myid).checkValidity() && document.getElementById("dateEnd_" + myid).checkValidity() && document.getElementById("statut_" + myid).checkValidity() && document.getElementById("tags_" + myid).checkValidity()) {
+
+            let data = JSON.stringify(
+                {
+                    //id: myid,
+                    title: document.getElementById("title_" + myid).value,
+                    dateBegin: document.getElementById("dateBegin_" + myid).value,
+                    dateEnd: document.getElementById("dateEnd_" + myid).value,
+                    statut: document.getElementById("statut_" + myid).value,
+                    tags: document.getElementById("tags_" + myid).value
+
+                }
+            )
+            console.log(data)
+            let xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 201) {
+                    console.log("put ok");
+                    window.location.href = "http://localhost:3000/";
+                }
+            };
+            xhttp.open("PUT", "http://localhost:3000/api/todo/" + myid);
+            xhttp.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
+            xhttp.send(data);
+
+        }
+        ;
+    }
+
+
+    function remove(myid) {
+        let xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                console.log("delete ok");
+                window.location.href = "http://localhost:3000";
+            }
+        };
+        xhttp.open("DELETE", "http://localhost:3000/api/todo/" + myid, true);
+        xhttp.send()
+    }
+
+    function statut() {
+        let xhttp = new XMLHttpRequest();
+        let statut = [];
+        let params = '';
+        if (document.getElementById('non_precise').checked) {
+            statut.push('Non precisée');
+        }
+        if (document.getElementById('tache_requise').checked) {
+            statut.push('Tâche requise');
+        }
+        if (document.getElementById('en_cours').checked) {
+            statut.push('En cours');
+        }
+        if (document.getElementById('achevee').checked) {
+            statut.push('Achevée');
+        }
+        if (document.getElementById('annulee').checked) {
+            statut.push('Annulée');
+        }
+
+        if (document.getElementById('searchTags').value.length > 0) {
+
+            params += "tags=" + document.getElementById('searchTags').value;
+        }
+
+        if (statut.length > 0) {
+            if (params.length > 0) {
+                params += "&";
+            }
+            params += "statut=" + statut.join(",");
+        }
+        if (params.length > 0) {
+
+            window.location.href = "http://localhost:3000/?" + params;
+        } else {
+            window.location.href = "http://localhost:3000/";
+        }
+    }
+
+    // Create a "close" button and append it to each list item
+    var myNodelist = document.getElementsByTagName("LI");
+    var i;
+    for (i = 0; i < myNodelist.length; i++) {
+        var id = myNodelist[i].getAttribute("id")
+        var span = document.createElement("SPAN");
+        var span2 = document.createElement("SPAN");
+        var txt = document.createTextNode("\u00D7");
+        var txt2 = document.createTextNode("\u270E");
+        span.setAttribute('onclick', "remove('" + id + "')");
+        span.className = "close";
+        span2.className = "edit";
+        span.appendChild(txt);
+        span2.appendChild(txt2)
+        myNodelist[i].appendChild(span);
+        myNodelist[i].appendChild(span2);
+    }
+
+
+    // Click on a edit button to hide the current list item
+    var edit = document.getElementsByClassName("edit");
+    var i;
+    for (i = 0; i < edit.length; i++) {
+        edit[i].onclick = function () {
+            var div = this.parentElement;
+            let input = div.getElementsByClassName("form");
+            //let updBtn = div.parentNode;
+            for (let i = 0; i < input.length; i++) {
+                if (input[i].disabled == true) {
+                    input[i].disabled = false;
+                } else {
+                    input[i].disabled = true;
+
+                }
+            }
+            if (input[input.length - 1].disabled == false) {
+
+                let span = document.createElement("SPAN");
+                var txt = document.createTextNode("\uD83D\uDCBE");
+                let id = div.getAttribute("id");
+                span.setAttribute('onclick', "update('" + id + "')");
+                span.className = "save";
+                span.appendChild(txt);
+                div.appendChild(span);
+            } else {
+                div.lastChild.remove();
+            }
+        }
+    }
+
+    var coll = document.getElementsByClassName("collapsible");
+    var i;
+
+    for (i = 0; i < coll.length; i++) {
+        coll[i].addEventListener("click", function () {
+            this.classList.toggle("active");
+            var content = this.nextElementSibling;
+            if (content.style.display === "flex") {
+                content.style.display = "none";
+            } else {
+                content.style.display = "flex";
+            }
+        });
+    }
+
+    function validateInput(textbox) {
+        //Validation.validate(document.getElementById(id));
+        if (document.getElementById("ADDdateBegin").checkValidity() && document.getElementById("ADDdateEnd").checkValidity() && document.getElementById("ADDtitle").checkValidity() && document.getElementById("ADDstatut").checkValidity() && document.getElementById("ADDtags").checkValidity()) {
+            console.log('ok')
+        } else {
+            console.log("nok")
+        }
+
+
+    }
+
+</script>
 </html>

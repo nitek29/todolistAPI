@@ -2,6 +2,15 @@ let todolist = require("../todolist.js");
 
 class TodosController {
     /* On affiche la todolist et le formulaire */
+    /**
+     * This function comment is parsed by doctrine
+     * @route GET /api
+     * @group todolist - Operations about todo
+     * @param {string} title.query.required - title - eg: homeworks
+     * @param {string} dateBegin.query.required - user's password.
+     * @returns {object} 200 - An array of user info
+     * @returns {Error}  default - Unexpected error
+     */
     getAllTodos(req, res) {
         console.log("function get");
         let params = {};

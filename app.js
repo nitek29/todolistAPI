@@ -7,10 +7,30 @@ var session = require('cookie-session'); // Charge le middleware de sessions
 var bodyParser = require('body-parser'); // Charge le middleware de gestion des paramètres
 var urlencodedParser = bodyParser.urlencoded({extended: true});
 
-
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var todoRouter = require('./routes/todo');
+
+let options = {
+  swaggerDefinition: {
+    info: {
+      description: 'This is a sample server',
+      title: 'Todolist',
+      version: '1.0.0',
+    },
+    host: 'localhost:3000',
+    basePath: '/api',
+    produces: [
+      "application/json",
+      "application/xml"
+    ],
+    schemes: ['http']
+
+  },
+  basedir: __dirname, //app absolute path
+  files: ['./routes/*.js'] //Path to the API handle folder
+};
+
 
 var app = express();
 
@@ -28,15 +48,16 @@ app.use(express.static(path.join(__dirname, 'public')));
 /* On utilise les sessions */
 app.use(session({secret: 'todolistSecureCookie'}))
 
-
+const expressSwagger = require('express-swagger-generator')(app);
+expressSwagger(options)
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/api/todo',todoRouter);
+app.use('/api/todo', todoRouter);
 
 //app.listen(8080);
 
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
   next(createError(404));
 });
 

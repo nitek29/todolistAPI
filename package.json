@@ -16,7 +16,8 @@
     "morgan": "~1.9.1",
     "mysql": "^2.18.1",
     "uuid": "^7.0.2",
-    "express-validator": "^6.4.0"
+    "express-swagger-generator": "^1.1.17",
+    "express-swaggerize-ui": "^1.1.0"
   },
   "author": "Quentin Galliou <qgalliou@enssat.fr>",
   "description": "Gestionnaire de todolist"
